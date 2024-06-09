@@ -1,0 +1,13 @@
+For clientapp:(Tshirt Designer )
+
+To start app, called "clientapp" npm create vite@latest -- --template react clientapp
+
+then, (necessary packages installation), cd clientapp, npm install three(3d threejs library) @react-three/fiber(react renderer for 3js library) 
+@react-three/drei (useful addons for react three fiber ) maath(math helpers: mostly math used for three js) valtio(new package used for managing 
+react state) react-color(this package is a color picker) framer-motion(package used for cool animations ) therefore, 
+
+"npm install three @react-three/fiber @react-three/drei maath valtio react-color framer-motion "
+
+now install tailwind: website; srch.vite and follow the instructions 
+(npm install -D tailwindcss postcss autoprefixer, (initialize: npx tailwindcss init -p))
+(aba : "tailwind.config.js ko content ma lekha", "./src/index.css ko mathi patti pani lekha ")
