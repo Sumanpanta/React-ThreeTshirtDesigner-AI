@@ -6,7 +6,12 @@ import Canvas from "./canvas"
 function App() {
   return (
     <main className="app transition-all ease-in">
-      <h1 className="head-text">Tshirt Designing App </h1>
+      {/* within here we render, home, canvas and customizer */}
+      <Home/>
+      <Canvas/>
+      <Customizer/>
+      {/* <h1 className="head-text"> Tshirt Designer using Three Js</h1> */}
+          
     </main>
 
   )

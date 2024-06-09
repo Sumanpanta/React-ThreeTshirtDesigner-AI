@@ -11,3 +11,7 @@ react state) react-color(this package is a color picker) framer-motion(package u
 now install tailwind: website; srch.vite and follow the instructions 
 (npm install -D tailwindcss postcss autoprefixer, (initialize: npx tailwindcss init -p))
 (aba : "tailwind.config.js ko content ma lekha", "./src/index.css ko mathi patti pani lekha ")
+
+
+
+Home.jsx (const snap = useSnapshot(state); //one current snapshot of that state)
