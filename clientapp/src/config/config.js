@@ -8,3 +8,6 @@ const config = {
 };
 
 export default config;
+
+// backend ko lagi use hune code ko api yo file ma rakheko, dalle(document info )
+// place for putting link in our backend

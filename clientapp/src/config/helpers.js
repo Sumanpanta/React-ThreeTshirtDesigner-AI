@@ -32,3 +32,7 @@ export const getContrastingColor = (color) => {
   // Return black or white depending on the brightness
   return brightness > 128 ? "black" : "white";
 };
+
+
+// DOM: used here to pick color, read, used color(JSmn)
+// created by chatgpt, while creating some application.

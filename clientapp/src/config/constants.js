@@ -36,3 +36,6 @@ export const DecalTypes = {
     filterTab: "stylishShirt",
   },
 };
+
+// npm installed packages, filter, three js, color picker etc. used and initialized here.
+// loop over and show different tabs 
