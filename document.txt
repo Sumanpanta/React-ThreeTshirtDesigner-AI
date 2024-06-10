@@ -10,8 +10,57 @@ react state) react-color(this package is a color picker) framer-motion(package u
 
 now install tailwind: website; srch.vite and follow the instructions 
 (npm install -D tailwindcss postcss autoprefixer, (initialize: npx tailwindcss init -p))
-(aba : "tailwind.config.js ko content ma lekha", "./src/index.css ko mathi patti pani lekha ")
+(aba : "tailwind.config.js ko content ma lekha", "./src/index.css ko mathi patti pani lekha "
+
+
+###############################################################
+####(Home.jsx)Code ko further information.
+Home.jsx (const snap = useSnapshot(state); //one current snapshot of that state, can use fxn
+written inside state, can be used anywhere in components using this lines)
+
+<AnimatePresence>(oc) // components of framer-motion: enables animation of components that have been removed from tree
+{snap.intro && (
+
+) }  //if we are currently on the intro page "on the hme page", in that case we can render the hme page data by(inside):
+
+# <motion.section   className="home" {}>(oc) //simple (more precise section)div with animation attached in it. 
+      //have classname 'home' and for animation we provide new obj inside curly braces. "spread (dot dot dot) slideAnimation('left')" 
+      //animation kata bata?? left bata (motion section banayeu hamle precise garna (ramro snaga code lekhna ))
+
+
+#motion.header(oc) //firsttime apprearing something on screen so motion header use gareko 
+within motion.header, we can have a image, <img/> (img have src='./threesj.png' alt='logo' className='afai milayer lekh ')
+//it ganna have slideAnimation going down <motion.header {...slideAnimation("down")}>     </motion.header></motion.section> )} ##snap.intro(closing)
+
+//below motion header, we ganna have <motion.div>
+</motion.div> //that have className="", spread (headContainer){...headContainerAnimation} 
+//inside there, have another motion.div// with spread (headTextAnimation) {...headTextAnimation} 
+//finally, inside there we can display h1, 
+
+////custombutton is imported from components, we use props called "handleClick and then arrow fxn"
+this ganna update the state.intro to false, finally pass some customstyles 
 
 
 
-Home.jsx (const snap = useSnapshot(state); //one current snapshot of that state)
+
+#######################################################
+custombutton.jsx 
+
+reder the title pass through props inside custombutton({title })
+return (
+    <button className={`px-2`}>
+    {title}
+    </button>
+)
+// tya vitra ko , props includes , ({type, title, customStyles, handleClick})
+//we create new style property and there we can {generateStyle to which we pass (type) }
+//yo generateStyle lai kaam garauna, mathi const generateStyle, arrow fxn, if lagauna parxa 
+
+
+
+
+
+
+
+
+
