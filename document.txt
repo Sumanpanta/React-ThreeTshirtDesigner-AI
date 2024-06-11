@@ -57,6 +57,12 @@ return (
 //yo generateStyle lai kaam garauna, mathi const generateStyle, arrow fxn, if lagauna parxa 
 
 
+////Three js cheetsheet for importing (extra knowledge from csheet)
+import * as THREE from 'three';
+import React, {useRef, useEffect } from 'react';
+import {Canvas } from 'react-three-fiber';
+
+
 
 
 
