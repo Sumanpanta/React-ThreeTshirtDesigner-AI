@@ -64,7 +64,20 @@ import {Canvas } from 'react-three-fiber';
 
 
 
+#################################################
+customizer.jsx
 
+inside <AnimatePresence>
+{!snap.intro &&(                                  //if not snap.intro(the homepage) &&(then)(... j hunxa tei lekhni tyo case ma)
+    <></>                                   //empty react fragment
+)}
+
+
+
+###################################
+(after adding some, tabs and customizing page, we goto canvas,index.jsx for 
+three js use for 3d modelling and designing
+using cameras,lightening, shadow etc.)
 
 
 
