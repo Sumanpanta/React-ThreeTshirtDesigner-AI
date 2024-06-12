@@ -80,6 +80,18 @@ three js use for 3d modelling and designing
 using cameras,lightening, shadow etc.)
 
 
+inside canvas we create many components and utilize it inside, canvas:index.jsx
+by importing it.
+In Canvas, we use ambientLight that have intensity
+then, we use Environment, it accept preset and we use preset="city  "/>
+
+In there we use, CameraRig (OC), inside it, Backdrop and then Center(OC),
+then, in Center, it have Shirt components.
+
+##the things won''t work goto inspect/console.
+## div matrai vayo, aru property use garena vanya xa so, 
+goto, Shirt.jsx and use other fxn instead of div. (three ko fxn use )
+
 
 
 

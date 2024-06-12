@@ -7,9 +7,18 @@ import CameraRig from './CameraRig'
 
 const CanvasModel = () => {
   return (
-    // instead of using canvas name, actual canvas model is used where inside many fxn are used
+    // instead of using canvas name, actual canvas model is used where inside many 
+    // fxn are used, see doc.
    <Canvas>
+      <ambientLight intensity={0.5}/>
+      <Environment preset='city'/>
 
+      <CameraRig>
+        <Backdrop/>
+        <Center>
+          <Shirt/>
+        </Center>
+      </CameraRig>
    </Canvas>
   )
 }
