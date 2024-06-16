@@ -94,4 +94,29 @@ goto, Shirt.jsx and use other fxn instead of div. (three ko fxn use )
 
 
 
+##################################
+shirt.jsx
+
+ const logoTexture = useTexture(snap.logoDecal) //this line indicates that, we use texture for the 3d model by useTexture hooks and 
+ //snap.logoDecal come from (const snap = useSnapshot(store) gareko bata snap and logoDecal vanni tyo store ma use vako xa tyo lerau vaneko )
+ (currently its a path pointing towords .png image)
+
+ const fullTexture vanni arko ra same like up defined and told.
+
+
+ castShadow meaning that it can cast Shadow.
+
+
+
+
+ ########################
+ CameraRig.jsx
+
+ after importing necessary components, 
+ within CameraRig, we are passing some childern components,(specifically the center contain the shirt, so to be able to 
+ display it we have to get it from the childern (react props: astinae padheko{childern vanni react props rakehko tya })) 
+
+
+
+
 
