@@ -188,3 +188,13 @@ ani balla group ma key={stateString} use grna painxa, (this way, react will rend
 
 
 
+
+###############################
+Backdrop.jsx (now its time for focusing on backdrop)
+(index.jsx vitra ko uncomment and three js implementation to backdrop)
+(shirt vanda paxadi cool lights ko lagi, shadow haru ko lagi )
+
+
+
+
+
