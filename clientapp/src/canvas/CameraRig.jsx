@@ -9,16 +9,15 @@ import { Group } from 'three';
 const CameraRig = ({children }) => {
   // 
   const group = useRef();
-  const snap = useSnapshot(store);
+  const snap = useSnapshot(state);
 
 
-  useFrame(()=> {
+  useFrame((state,delta)=> {
     const isBreakpoint = window.innerWidth <= 1260;
     const isMobile = window.innerWidth <= 600;
 
     //Lets set the initial position of the model, for that we use
     let targetPosition = [-0.4, 0, 2];
-
     if(snap.intro){
       if(isBreakpoint) targetPosition = [0,0,2];
       if(isMobile) targetPosition = [0,0.2,2.5];

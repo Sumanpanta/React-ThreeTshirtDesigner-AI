@@ -173,8 +173,18 @@ delta = difference kasari find garni? (need to hold the useFrame hooks: allow us
     again on shirt.jsx 
 
     (now we work on (if we showing logo or not or the fullTexture ))
+ Todo that, we can hold the "snap (whichis state)" and then check ifFulltexture then we apply, Decal.
+
+we ganna play this with more actual easing by applying useFrame hooks.(applying color smoothly not tramatically)
 
 
+
+// aba yo changes automatic render huna ko lagi group ma key create garnu parxa,
+ it cannot be use as state(direcly)
+// recreate string of current state 
+const stateString = JSON.stringify(snap);
+
+ani balla group ma key={stateString} use grna painxa, (this way, react will render model, whenever state changes )
 
 
 
