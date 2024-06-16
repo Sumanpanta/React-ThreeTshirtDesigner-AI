@@ -115,6 +115,64 @@ shirt.jsx
  after importing necessary components, 
  within CameraRig, we are passing some childern components,(specifically the center contain the shirt, so to be able to 
  display it we have to get it from the childern (react props: astinae padheko{childern vanni react props rakehko tya })) 
+ and then render it out,  we can do that by returning <group> and that group is rendering the childern.
+ 
+ we want to modify a bit to move the camera closer, 
+ for that we create a newRef called,
+ const group = newRef();
+
+ then we ganna we the ref leter on to update the state, so we can simply connect the ref on group write there like:
+ return (
+    <group ref={group}>{childern}</group>
+    (useRef define xina vani mathi react ma define gar import from 'react' ma )
+ )
+
+
+
+   // set the model rotation smoothly.
+  easing.dampE(
+    
+  )
+  dampE vaneko fxn, we pass couple of properties to it. properties ma variable ni pass garnu paryo.
+
+  aba properties ma x,y,z variable pass gareko,
+  [state.pointer.y / 10, -state.pointer.x/5, 0] , x= state ko pointer ko y divided by 10, z= 0,
+  this is ganna break it one more time, because we are ganna provide smooth time also.
+
+
+***VVI*** lekheko kura lai padhna sik, tyo info ma deko kura haru 
+
+eg. smoothTime?: number = smoothTime hunxa tesma, number form ma. likewise, delta?.(meaning the difference diyo pani lekh)
+delta = difference kasari find garni? (need to hold the useFrame hooks: allow us to execute code on everyrendered frame.)
+(so we can run different effects, there controls and so on.)
+(useFrame accepts the callback fxn) then we can use all the easing code inside callback fxn [("here we get state,delta")=>{
+    "yo vitra vaneko kya "
+    
+    }] "delta meaning the difference from last frame that happened"
+    now we can pass delta as last parameter to easing.(tyo mathi state sangai,  delta pass gareko vayera )
+
+
+        const isBreakpoint = window.innerWidth <= 1260;
+    const isMobile = window.innerWidth <= 600; //this ensure we can make shirt proper size on all different scren.
+
+
+    if(snap.intro) ="on homepage "
+    else ="on customizer page"
+
+
+        easing.damp3(
+      state.camera.position, 
+      targetPosition,
+      0.25,
+      delta
+    )      //state.camera.position = one parameter, targetPosition = another parameter, 0.25 = smoothTime, delta = difference
+    (yo sabbai parameter pass ho)
+
+
+    ###########################camera ko dherai jasto banayo: now jumping back to improving shirt model.
+    again on shirt.jsx 
+
+    (now we work on (if we showing logo or not or the fullTexture ))
 
 
 
