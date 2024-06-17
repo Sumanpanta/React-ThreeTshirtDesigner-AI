@@ -56,7 +56,7 @@ const stateString = JSON.stringify(snap);
         scale={0.15}
         map={logoTexture}
         // changing quality of the texture
-        map-anisotropy = {16}
+        map_asinotropy = {16}
         depthTest={false}
         depthWrite={true}
         />

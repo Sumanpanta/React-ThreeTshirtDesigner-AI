@@ -195,6 +195,167 @@ Backdrop.jsx (now its time for focusing on backdrop)
 (shirt vanda paxadi cool lights ko lagi, shadow haru ko lagi )
 
 
+index.jsx ma
+    // instead of using canvas name, actual canvas model is used where inside many 
+    // fxn are used, see doc.(bckdrop shadow fix grna, playing with canvas) shadows huna paryo,
+    // cmra position milna pary, feel of view(fov) kasto thulo ki syano dekhni
+    //gl property pani use garni: for preserver drawing buffer (backdrop kai lagi, canvas sanga play)
+
+
+again in backdrop.jsx 
+for focusing on removing, shadow, we need to useRef (because we need to reference to that specific shadow)
+ref vanera use garyo accumulateShadow ma, 
+we use 'temperal' variable(its going to smooth out the adges of the shadow over time )
+we use 'frames:60' meaning frames going to render in 60 frames
+we use 'alphatest (set trasperancy of shadow)'
+
+
+
+with all this, we are done with backdrop, camera, now all the way to customizer.jsx 
+(button haru ko lagi tab vanni xani ahile)
+
+######################################
+from customizer, click Tabs and all fxn perform there
+Tab.jsx
+// you remember, inside customizer, we have couple of props to our tab, here
+we have things like tab, isFilterTab, isActivaTab and the handleClick.
+
+so lets get those props in Tab ko callback(arrow fxn vitra)
+(tab, isFilterTab, isActivaTab, handleClick)
+
+now lets change tab ko div into actual jsx of tab,  doing that by giving each div a key.
+key={tab.name}
+className={"dynamic template string"}
+i.e.  className={`tab-btn ${isFilterTab} 'rounded-full glassmorhism' : rounded-4 `}
+if isFilterTab then rounded-full glassmorhism, else rounded-4
+
+
+now we can give styles depending on it active for that we create :
+const activeStyles = isFilterTab && isActivaTab ?
+if ... and .... inthatcase, we can give a property
+
+aba, tala style={activeStyles} vanera pass garera, aba div vitra image rakhni
+
+className={`${isFilterTab ? 'w-2/3 h-2/3': 'w-11/12 h-11/12 object-contain'}`} if (isFilterTab then 
+yeuta design, else arko design "look clearly writing style")
+
+
+
+######################################
+now for makng tabs clickable, goto customizer.jsx 
+// tala patti tyo active click garda k hune lekheko xa, aba,,
+//show tab depending on the activeTab vanni ma new clickable fxn 
+  const generateTabContent = ("yo ma ahile parameter ligdain bcause ") => {
+    
+  }        // bcausepaxi ko ,we ganna keep track of active tag within the state.
+
+
+    // write here as the local state of our app, we can create use state
+  const [file, setfile] = useState('')
+the first useState be our file, later on we need to upload a file, so we make it empty now.
+
+  const [activeEditorTab, setactiveEditorTab] = useState("");
+  const [activeFilterTab, setactiveFilterTab] = useState({
+    logoShirt:true,
+    stylishShirt:false,
+  })
+  //this shows are we going to show logo, full texture or which tab is active.
+
+  //now we have everything to work with generateTabContent, how we implement it is by using switch case.
+  in activeEditorTab, if case is colorpicker, we ganna return selfclosing "<colorpicker/>"
+("same likethis for all ")
+after that we are ganna, display additional components on top of the layout (colorpicker,aipicker, filepkr)
+using AbsolutePositioning, once we click on them.
+(for that happen, we have to call generateTabContent somewhere, so(below our editor tabs))
+
+//now on the editor tab, we can call the setactiveEditorTab to tab that name,
+This,,,,
+ handleClick={() => setactiveEditorTab(tab.name)}
+ (aba click garda nam dekhauni matrai vayo, but we have to add more fxn so,
+ lets focus on colorpicker first )
+
+ ########################################
+ColorPicker.jsx
+
+aba sketchpicker vanni react-color bata ligni ,
+ ani 
+ div vitra className rakhesi ani selfclosing colorpicker rakhni ani,
+ tyo choose garna mildaina , disable hunca, enable garna lai 
+
+ tei sketchpicker vitra disableAlpha, onchange garda k huna paryo tyo rakhni.
+
+#################################################(customizer.jsx)
+ ////with this, colorpicker is fully set, now we can go back to customizer.
+ and focus on the FilePicker.
+
+ whare we can upload own images to display them as logo.
+ (for that to work, we can pass couple of props,(firlst of all, pass the file={file},
+ setfile={setFile},"these are coming from state"))
+
+ Now, we have to create a special fxn called, 
+ const readFile =(type) => {
+
+ }  //which is going to takein the type of the file and 
+ then we have to pass it to a reader fxn, to get the file data 
+ 
+ reader(file)
+ .then((result) =>{
+
+ }) //then we do a .then where we get the result, 
+
+
+   const readFile = (type ) => {
+    reader(file)
+    .then((result) =>{
+      handleDecals(type,result);
+      setactiveEditorTab("")
+
+    } )
+  } //handleDecals on shirt, depending on the type and the result.
+  //setactiveEditorTab to empty string, meaning we want to reset it.
+
+  //handleDecals implemented vako xin aba const handleDecals garera,implement
+  garnu parxa, tyo use garnu vanda mathi nai.
+  type,result (based on this, we ganna update the shirt.)
+
+
+    const DecalType = DacalTypes[type]; //first pass decalType by 
+    decalType vanni const and DecalType[type] ("we pass in type inside it.")
+
+    Now we ganna update the state by, state[decalType.stateProperty] =..
+
+
+    state[DecalType.stateProperty] = result; //updating value of the store. 
+    ////hamle useSnapshot garera store vitra ko ligeko them ni tei.
+
+    ###mathi ko gareko sabbai are we showing logo, texture or both ko lagi####
+
+
+    #########################################################
+    FilePicker.jsx 
+
+    const FilePicker = ({file, setFile, readFile}) => {}
+    utapatti ko use gareko sabbai ligeko , 
+
+
+    <div className="filepicker-container">
+      <div className="flex-1 flex flex-col">
+        <input 
+          id="file-upload"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setFile(e.target.files[0])}
+        /> //ganna have div and input field have id,type,accept ?? only img,
+
+        onChange garda , change hou vanera tyo lekheko 
+
+
+      <label htmlFor="file-upload" className="filepicker-label">
+          Upload File
+        </label> 
+        //label is connected to above input by giving htmlFor, 
+        and then className for design .
+
 
 
 

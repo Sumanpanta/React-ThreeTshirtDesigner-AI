@@ -1,8 +1,25 @@
 import React from 'react'
+import { useSnapshot } from 'valtio'
 
-const Tabs = () => {
+import state from '../store'
+
+const Tabs = ({tab, isFilterTab, isActiveTab, handleClick}) => {
+  const snap = useSnapshot(state);
+
+  const activeStyles = isFilterTab && isActiveTab 
+  ?{backgroundColor: snap.color, opacity: 0.5 }
+  :{ backgroundColor:"transparent", opacity:1 }
+  // see docs 
   return (
-    <div>Tabs</div>
+    <div
+    key={tab.name}
+    className={`tab-btn ${isFilterTab} 'rounded-full glassmorhism' : rounded-4 `}
+    onClick={handleClick}
+    style={activeStyles}
+    >
+      <img src={tab.icon} alt=""
+      className={`${isFilterTab ? 'w-2/3 h-2/3': 'w-11/12 h-11/12 object-contain'}`} />
+    </div>
   )
 }
 
