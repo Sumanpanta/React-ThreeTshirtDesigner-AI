@@ -76,6 +76,9 @@ const Customizer = () => {
         state.isFullTexture = true;
         state.isLogoTexture = false;
     }
+    // see docs:(396)
+    // after setting the state, we need to update activeFilterTab
+    
 
   }
 
@@ -138,8 +141,8 @@ const Customizer = () => {
                       key={tab.name}
                       tab={tab} 
                       isFilterTab
-                      isActiveTab=""
-                      handleClick={() => {}}
+                      isActiveTab={activeFilterTab[tab.name]}
+                      handleClick={() => handleActiveFilterTab(tab.name)}
                     />
                   ))}
 

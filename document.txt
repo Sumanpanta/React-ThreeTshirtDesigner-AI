@@ -356,6 +356,47 @@ aba sketchpicker vanni react-color bata ligni ,
         //label is connected to above input by giving htmlFor, 
         and then className for design .
 
+below that, we ganna show, which file have been uploaded, so 
+we ganna say, 
+<p> if file is tripple equal to empty string, 
+then we can say, no file selected, else show file name 
+
+
+
+      <div className="mt-4 flex flex-wrap gap-3">
+        <CustomButton 
+          type="outline"
+          title="Logo"
+          handleClick={() => readFile('logo')}
+          customStyles="text-xs"
+        />
+        <CustomButton 
+          type="filled"
+          title="Full"
+          handleClick={() => readFile('full')}
+          customStyles="text-xs"
+        />
+      </div> //this div is wrapper for our buttons.
+
+      //handleClick is a callback fxn passing the logo,full
+
+  
+  ##aba custombutton ma else if condition lagayera matrai tyo hunxa 
+
+  else if(type ==="outline") {
+    return {
+      borderWidth: '1px',
+      borderColor: snap.color,
+      color: snap.color
+    }
+  }
+////customizer ma sabai kaam gareko vayera, we can use upload fxn, 
+aba logo banayera ani tya upload garera tshirt ma use garna sakkinxa
+
+########################
+Now, it time for turning on and off the full or logo, tala patti ko tshirt 
+so, customizer, FilterTabs vitra, handleClick vanni ahile empty xa, 
+(lets fill it with fxn)
 
 
 
