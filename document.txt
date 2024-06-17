@@ -416,6 +416,6 @@ Now handleSubmit vanni navayera tyo vanda tala patti create gareko
   }  //async fxn thats going to take in a type , (want to create a logo or full texture) 
 *********************************************************************************************************************************
  inside try block, we have to use backend fxn to call and for that, we create a folder called server and after creating folder, 
- on terminal, write , npm init -y, (now it will create all the file and folder in single file called  .json file)
+ cd server, on terminal, write , npm init -y, (now it will create all the file and folder in single file called  .json file)
 
 
