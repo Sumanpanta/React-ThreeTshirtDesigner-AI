@@ -18,14 +18,14 @@ const Customizer = () => {
   const [file, setFile] = useState('');
 
   //later we ganna create ai prompt so, useState for that too;
-  const [prompt, setprompt] = useState('');
+  const [prompt, setPrompt] = useState('');
 
   //are we generating img or not for that too;
-  const [generatingImg, setgeneratingImg] = useState(false);
+  const [generatingImg, setGeneratingImg] = useState(false);
 
   //active state
-  const [activeEditorTab, setactiveEditorTab] = useState("");
-  const [activeFilterTab, setactiveFilterTab] = useState({
+  const [activeEditorTab, setActiveEditorTab] = useState("");
+  const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt:true,
     stylishShirt:false,
   })
@@ -44,13 +44,40 @@ const Customizer = () => {
         
         />
       case "aipicker":
-        return <AIPicker/>
+        return <AIPicker
+        prompt={prompt}
+        setPrompt = {setPrompt}
+        generatingImg = {generatingImg}
+        handleSubmit = {handleSubmit}
+
+        /> //now after everything done, ai picker ma kaam garna, we have to pass a prompt, same like colorpkr
      
       default:
         return null;
     }
     
   }
+  //mathi ko handleSubmit vanni fxn nabanako vayera, ahile banauna lageko 
+
+  const handleSubmit = async (type) => {
+    if(!prompt) return alert("Please enter a prompt");
+
+
+    try {
+      //call our backend to generate ai image/text! 
+
+      
+    } catch (error) {
+      alert(error)
+      
+    } finally {
+      setGeneratingImg(false);
+      setActiveEditorTab("");
+    }
+  }
+  
+
+
 
 
   const handleDecals = (type, result ) => {
@@ -78,15 +105,21 @@ const Customizer = () => {
     }
     // see docs:(396)
     // after setting the state, we need to update activeFilterTab
-    
-
+    setActiveFilterTab((prevState) => {
+      return {
+        ...prevState,
+        [tabName]: !prevState[tabName]
+      }
+    })
   }
+
+  
 
   const readFile = (type ) => {
     reader(file)
     .then((result) =>{
       handleDecals(type,result);
-      setactiveEditorTab("");
+      setActiveEditorTab("");
 
     } )
   }
@@ -105,7 +138,7 @@ const Customizer = () => {
                     <Tabs
                       key={tab.name}
                       tab={tab} 
-                      handleClick={() => setactiveEditorTab(tab.name)}
+                      handleClick={() => setActiveEditorTab(tab.name)}
                     />
                   ))}`
                   {/* see docs (269)` */}

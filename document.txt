@@ -400,3 +400,19 @@ so, customizer, FilterTabs vitra, handleClick vanni ahile empty xa,
 
 
 
+################################## now time for adding aipicker,
+Customizer.jsx
+      case "aipicker":
+        return <AIPicker
+        prompt={prompt}
+        setPrompt = {setPrompt}
+        generatingImg = {generatingImg}
+        handleSubmit = {handleSubmit}
+         //line no 46-53
+
+Now handleSubmit vanni navayera tyo vanda tala patti create gareko 
+  const handleSubmit = async (type ){
+    if else fxn, (prompt xina vani alert deu, xa vani try catch finally use gara)
+  }  //async fxn thats going to take in a type , (want to create a logo or full texture) 
+
+
