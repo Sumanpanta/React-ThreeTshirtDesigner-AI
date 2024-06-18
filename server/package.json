@@ -4,11 +4,19 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start":"nodeman index"   
-    
+    "start": "nodeman index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cloudinary": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.3",
+    "nodeman": "^1.1.2",
+    "openai": "^4.51.0"
+  }
 }

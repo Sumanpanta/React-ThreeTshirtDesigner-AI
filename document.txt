@@ -418,9 +418,43 @@ Now handleSubmit vanni navayera tyo vanda tala patti create gareko
  inside try block, we have to use backend fxn to call and for that, we create a folder called server and after creating folder, 
  cd server, on terminal, write , npm init -y, (now it will create all the file and folder in single file called  .json file)
 
+ "npm start "        //to run the program
+
 
 .json file ko script vitra:
 "start": "nodeman index"   //index ma sabbai hunca vanna ko lagi 
 
+mathi patti {
+  "type":"module"
+}
+
+Now,
+we have to install couple of dependencies.
+cd server ma, 
+("npm install cloudinary cors dotenv express mongoose nodeman openai")
+
+npm install cloudinary("we ganna use to save images")
+cors("cross origin request")
+dotenv("for storing our env variable")
+express("express js ta use hune nai vaihalyo")
+mongoose("database: a MongoDB object data modeling (ODM) 
+library for Node.js and MongoDB. Mongoose provides a straightforward,
+ schema-based solution to model application data")
+nodeman("a tool that helps develop Node.js based applications by 
+automatically restarting the node application when file changes 
+in the directory are detected.")
+openai
+(just explanation)
+
+
+install gareko package listing: npm list --depth=0
+
+#############################################
+insde server, create index.js
+do usal stuff of creating of regular express server by, import express from ..
+
+
+To set up Environment variable,
+we have to call dotenv.config();
 
 
