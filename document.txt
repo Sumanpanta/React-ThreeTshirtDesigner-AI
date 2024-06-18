@@ -431,7 +431,7 @@ mathi patti {
 Now,
 we have to install couple of dependencies.
 cd server ma, 
-("npm install cloudinary cors dotenv express mongoose nodeman openai")
+("npm install cloudinary cors dotenv express mongoose nodemon openai")
 
 npm install cloudinary("we ganna use to save images")
 cors("cross origin request")
@@ -440,7 +440,7 @@ express("express js ta use hune nai vaihalyo")
 mongoose("database: a MongoDB object data modeling (ODM) 
 library for Node.js and MongoDB. Mongoose provides a straightforward,
  schema-based solution to model application data")
-nodeman("a tool that helps develop Node.js based applications by 
+nodemon("a tool that helps develop Node.js based applications by 
 automatically restarting the node application when file changes 
 in the directory are detected.")
 openai
@@ -456,5 +456,59 @@ do usal stuff of creating of regular express server by, import express from ..
 
 To set up Environment variable,
 we have to call dotenv.config();
+
+
+#now create routes folder and create (j nam rakhe pani hunxa):in my case,
+gensu.routes.js(inside of which the logic for the interaction with dalle api will go.)
+
+gensu.routes.js lai chalauna ko lagi //index.js ma 
+import dalleRoutes from './routes/gensu.routes.js'
+//yo import garera
+
+app.use('/api/v1/dalle', dalleRoutes);   //yo tya rakhna paryo. then, 
+
+
+const config = new Configuration({
+  'chatgpt ko user api: .env file banayera :
+  
+  OPENAI_API_KEY ="your api key rakhni ani "
+  '
+
+  yeha cahie  >"apiKey: process.env.OPENAI_API_KEY,"             //"" yo duita vitra ko lekhni 
+
+})
+//configure the use of the dalle api, inside here we can pass api key.
+
+
+
+//only thing after Configuration is utilize this config and merge it with instance of OpenAIApi and pass the config into it.
+like this:           const openai = new OpenAIApi(config);
+
+
+Now, we have to create new route through which we can pass the prompt from the frontend to the server.
+router.route('/'.post(async (req, res )=>{
+
+}))            //this time we do .post having async(req, res) and inside there we can open new try and catch block
+
+//try catch along with res.status(500).json({message: "Something went wrong"})
+
+//In try, we can actually get the prompt, passing from frontend:
+        const {prompt} = req.body;
+
+        //how do we get ai response, for that, we say:
+        const response = await openai.createImage({
+          "call garera pass garni eg. frontend ko prompt, n=1,size='1024*1024', response_format:'b64-json'"
+        }) //response ko farmat kasto vanda //hamro image receive garna sakni 
+
+
+        aba response garepaxi 
+        const image = response.data.data[0].image;     //once we hve it we can simply pass it over frontend, by saying :
+
+        res.status(200).json({photo:image}); //we pass photo = image  //thats it ....
+
+
+###########################################################(backend ko sakkyo aba feri frontend /components/aipicker ma )
+nothing more than simple form and 2 buttons and then call our backend .
+
 
 
