@@ -419,3 +419,8 @@ Now handleSubmit vanni navayera tyo vanda tala patti create gareko
  cd server, on terminal, write , npm init -y, (now it will create all the file and folder in single file called  .json file)
 
 
+.json file ko script vitra:
+"start": "nodeman index"   //index ma sabbai hunca vanna ko lagi 
+
+
+
