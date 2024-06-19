@@ -525,5 +525,14 @@ try {
 switch case ma return vayena vani break use garna parxa, 
 
 
+##########################################(For Deployment )
+deploy backend in, render.com and frontend (cd clientapp):.env ko file ni tya rakhni, see 10 hours msclass.
+aba customizer.com ma 8080 lai newly deployed backend ko url rakhera ani (try wala part ma ) Now ,
+ ( npm run build) for (optimized )production ready build.
+
+built has been created,we can find new dist fldr within the client, now goto hostinger's dashboard where initially created acc.
+parchase hosing and domain name and goto file manager. vitra gayera tya ko public vitra ko .php delete and file explorer ko dist fldr virta gayera
+drag and drop to our deployment server. (bingo app deploy vayo!!!!)
+
 
 
