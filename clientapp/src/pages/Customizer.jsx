@@ -64,9 +64,22 @@ const Customizer = () => {
 
 
     try {
-      //call our backend to generate ai image/text! 
+      //call our backend to generate ai image/text! //sabbai kaam sakkera ani aipicker garera, last ma try ma backend ko lekhni
+      setGeneratingImg(true);
 
-      
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+        })
+      })
+
+      const data = await response.json();
+
+      handleDecals(type, `data:image/png;base64,${data.photo}`)
     } catch (error) {
       alert(error)
       
@@ -76,9 +89,6 @@ const Customizer = () => {
     }
   }
   
-
-
-
 
   const handleDecals = (type, result ) => {
     const decalType = DecalTypes[type];
@@ -99,9 +109,11 @@ const Customizer = () => {
         break;
       case "stylishShirt":
         state.isFullTexture =!activeFilterTab[tabName];
+        break;
       default:
         state.isFullTexture = true;
         state.isLogoTexture = false;
+        break;
     }
     // see docs:(396)
     // after setting the state, we need to update activeFilterTab

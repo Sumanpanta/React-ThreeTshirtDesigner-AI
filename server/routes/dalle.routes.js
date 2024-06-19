@@ -1,6 +1,6 @@
-import express, { response } from 'express';
+import express from 'express';
 import * as dotenv from 'dotenv';
-import { Configuration, OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi} from 'openai';
 
 dotenv.config();
 
@@ -17,7 +17,7 @@ router.route('/').get((req, res) => {
 })                                      //lets create a couple of routes, see index.js(sabbai info xa)
 
 
-router.route('/'.post(async (req, res )=>{                   //see docs (488-492,496)
+router.route('/').post(async (req, res )=>{                   //see docs (488-492,496)
     try {
         const {prompt} = req.body;
         const response = await openai.createImage({
@@ -27,6 +27,8 @@ router.route('/'.post(async (req, res )=>{                   //see docs (488-492
             response_format: 'b64_json'
         });
         const image = response.data.data[0].b64_json;
+
+        res.status(200).json({ photo: image });
         
         
     } catch (error) {
@@ -35,7 +37,7 @@ router.route('/'.post(async (req, res )=>{                   //see docs (488-492
         
     }
 
-}))
+})
 
 export default router;                    //have to export default router
 //we have to connect all this inside index.js(to show , where is this going to be., what is this route.)

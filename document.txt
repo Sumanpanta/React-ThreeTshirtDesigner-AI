@@ -511,4 +511,19 @@ router.route('/'.post(async (req, res )=>{
 nothing more than simple form and 2 buttons and then call our backend .
 
 
+const AIPicker = ({prompt, setPrompt, generatingImg, handleSubmit}) => {} //yo sabbai customizer.jsx ma use vako xa
+
+
+
+
+############################################# 
+Customizer.jsx 
+try {
+  handleDecals(type, `data:image/png;base64,${data.photo}`)      //that's how we can render base64 string.
+}
+
+switch case ma return vayena vani break use garna parxa, 
+
+
+
 
